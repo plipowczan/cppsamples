@@ -59,6 +59,22 @@ class PersonClass
     }
 };
 
+class EmployeeClass : public PersonClass
+{
+public: 
+    int hourSalary;
+
+    EmployeeClass(string _firstName, string _lastName, int _gender, int _age, int _hourSalary) : PersonClass(_firstName, _lastName, _gender, _age)
+    {
+        hourSalary= _hourSalary;
+    }
+
+    int GetMonthSalary()
+    {
+        return 160 * hourSalary;
+    }
+};
+
 namespace Animals
 {
 enum Animals
@@ -150,27 +166,30 @@ void MarriageInfo(Marriage marriage)
 
 int main(int argc, char const *argv[])
 {
-    Person pawel;
-    pawel.firstName = "Paweł";
-    pawel.lastName = "Lipowczan";
-    pawel.gender = 1;
-    pawel.age = 35;
+    EmployeeClass employee = EmployeeClass("Paweł", "Lipowczan", 1, 35, 100);
+    cout << employee.firstName << " " << employee.lastName << " earns: " << employee.GetMonthSalary() << endl;
 
-    PersonClass pawelClass = PersonClass("Paweł", "Lipowczan", 1, 35);
+    // Person pawel;
+    // pawel.firstName = "Paweł";
+    // pawel.lastName = "Lipowczan";
+    // pawel.gender = 1;
+    // pawel.age = 35;
 
-    pawelClass.IncreaseAge(5);
-    pawelClass.PrintPersonData();
+    // PersonClass pawelClass = PersonClass("Paweł", "Lipowczan", 1, 35);
 
-    PrintPersonData(pawel);
+    // pawelClass.IncreaseAge(5);
+    // pawelClass.PrintPersonData();
 
-    Person kamil = {"Kaml", "Testowski", 1, 30};
-    Person agata = {"Agata", "Mala", 1, 25};
+    // PrintPersonData(pawel);
 
-    PrintPersonData(kamil);
+    // Person kamil = {"Kaml", "Testowski", 1, 30};
+    // Person agata = {"Agata", "Mala", 1, 25};
 
-    Marriage marriage1 = {agata, kamil, 5};
+    // PrintPersonData(kamil);
 
-    MarriageInfo(marriage1);
+    // Marriage marriage1 = {agata, kamil, 5};
+
+    // MarriageInfo(marriage1);
 
     //ArrayTest();
     //Legs();
