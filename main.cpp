@@ -61,12 +61,12 @@ class PersonClass
 
 class EmployeeClass : public PersonClass
 {
-public: 
+  public:
     int hourSalary;
 
     EmployeeClass(string _firstName, string _lastName, int _gender, int _age, int _hourSalary) : PersonClass(_firstName, _lastName, _gender, _age)
     {
-        hourSalary= _hourSalary;
+        hourSalary = _hourSalary;
     }
 
     int GetMonthSalary()
@@ -164,10 +164,60 @@ void MarriageInfo(Marriage marriage)
     cout << marriage.husband.firstName << " is married with " << marriage.wife.firstName << " for " << marriage.age << " years" << endl;
 }
 
+// template <class T>
+// T multiplication(T x, T y)
+// {
+//     return x * y;
+// };
+
+template <class T, class U>
+T multiplication(T x, U y)
+{
+    return x * y;
+}
+
+template <class T>
+class MathOperations
+{
+  public:
+    T add(T x, T y)
+    {
+        return x + y;
+    }
+
+    T subtract(T x, T y)
+    {
+        return x - y;
+    }
+
+    T divide(T x, T y)
+    {
+        return x / y;
+    }
+
+    T multiply(T x, T y)
+    {
+        return x + y;
+    }
+};
+
+typedef MathOperations<int> MathOperationsInt;
+typedef MathOperations<double> MathOperationsDouble;
+
 int main(int argc, char const *argv[])
 {
-    EmployeeClass employee = EmployeeClass("Paweł", "Lipowczan", 1, 35, 100);
-    cout << employee.firstName << " " << employee.lastName << " earns: " << employee.GetMonthSalary() << endl;
+    MathOperationsInt mathOperationsInt = MathOperationsInt();
+    MathOperationsDouble mathOperationsDouble = MathOperationsDouble();
+
+    cout << "Lets count ints add: " << mathOperationsInt.add(10, 2) << endl;
+    cout << "Lets count double add: " << mathOperationsDouble.add(10.3, 2.1) << endl;
+
+    // cout << "Lets count ints: " << multiplication(10, 2) << endl;
+    // cout << "Lets count doubles " << multiplication(10.5, 2.5) << endl;
+    // cout << "Lets count doubles " << multiplication(10.5, 2) << endl;
+
+    // EmployeeClass employee = EmployeeClass("Paweł", "Lipowczan", 1, 35, 100);
+    // cout << employee.firstName << " " << employee.lastName << " earns: " << employee.GetMonthSalary() << endl;
 
     // Person pawel;
     // pawel.firstName = "Paweł";
