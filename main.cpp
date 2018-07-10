@@ -1,3 +1,4 @@
+#include "Car.h"
 #include <iostream>
 #include <string>
 
@@ -176,6 +177,10 @@ T multiplication(T x, U y)
     return x * y;
 }
 
+//------------------------------------------------------------------------
+// typedef and template classes
+//------------------------------------------------------------------------
+
 template <class T>
 class MathOperations
 {
@@ -204,20 +209,92 @@ class MathOperations
 typedef MathOperations<int> MathOperationsInt;
 typedef MathOperations<double> MathOperationsDouble;
 
+//------------------------------------------------------------------------
+// pass arguments by value or reference
+//------------------------------------------------------------------------
+
+void increaseNumberByValue(int number)
+{
+    number++;
+}
+
+void increaseNumberByReference(int &number)
+{
+    number++;
+}
+
+//------------------------------------------------------------------------
+// pointers
+//------------------------------------------------------------------------
+
+void increaseNumberByPointer(int *ptr)
+{
+    (*ptr)++;
+}
+
 int main(int argc, char const *argv[])
 {
-    MathOperationsInt mathOperationsInt = MathOperationsInt();
-    MathOperationsDouble mathOperationsDouble = MathOperationsDouble();
+    //------------------------------------------------------------------------
+    // multiple files
+    //------------------------------------------------------------------------
 
-    cout << "Lets count ints add: " << mathOperationsInt.add(10, 2) << endl;
-    cout << "Lets count double add: " << mathOperationsDouble.add(10.3, 2.1) << endl;
+    Car c = Car();
+    c.BlowHorn();
+
+    //------------------------------------------------------------------------
+    // pointers
+    //------------------------------------------------------------------------
+
+    // int myAge = 35;
+    // cout << "My age: " << myAge << endl;
+    // cout << "The address of my age " << &myAge << endl;
+
+    // int *ptr = &myAge;
+    // cout << "The address of my age (by pointer) " << ptr << endl;
+    // cout << "My age (pointer): " << (*ptr) << endl;
+    // (*ptr)++;
+    // cout << "My age one year later (pointer): " << (*ptr) << endl;
+    // increaseNumberByPointer(ptr);
+    // cout << "My age one year later (pointer): " << (*ptr) << endl;
+
+    //------------------------------------------------------------------------
+    // pass arguments by value or reference
+    //------------------------------------------------------------------------
+
+    // int number = 5;
+    // cout << "Number value: " << number << endl;
+    // increaseNumberByValue(number);
+    // cout << "Increased by value: " << number << endl;
+    // increaseNumberByReference(number);
+    // cout << "Increased by reference: " << number << endl;
+
+    //------------------------------------------------------------------------
+    // typedef and template classes
+    //------------------------------------------------------------------------
+
+    // MathOperationsInt mathOperationsInt = MathOperationsInt();
+    // MathOperationsDouble mathOperationsDouble = MathOperationsDouble();
+
+    // cout << "Lets count ints add: " << mathOperationsInt.add(10, 2) << endl;
+    // cout << "Lets count double add: " << mathOperationsDouble.add(10.3, 2.1) << endl;
+
+    //------------------------------------------------------------------------
+    // template functions
+    //------------------------------------------------------------------------
 
     // cout << "Lets count ints: " << multiplication(10, 2) << endl;
     // cout << "Lets count doubles " << multiplication(10.5, 2.5) << endl;
     // cout << "Lets count doubles " << multiplication(10.5, 2) << endl;
 
+    //------------------------------------------------------------------------
+    // inheritance derived class
+
     // EmployeeClass employee = EmployeeClass("Paweł", "Lipowczan", 1, 35, 100);
     // cout << employee.firstName << " " << employee.lastName << " earns: " << employee.GetMonthSalary() << endl;
+
+    //------------------------------------------------------------------------
+    // classes and structs
+    //------------------------------------------------------------------------
 
     // Person pawel;
     // pawel.firstName = "Paweł";
